@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Configs\GlobalConfig.cs" />
     <Compile Include="DataAccess\IDataConnection.cs" />
+    <Compile Include="DataAccess\TextConnectorProcessor.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Models\MatchupEntryModel.cs" />
     <Compile Include="Models\MatchupModel.cs" />
