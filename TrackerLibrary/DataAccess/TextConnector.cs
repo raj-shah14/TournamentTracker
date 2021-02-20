@@ -12,6 +12,7 @@ namespace TrackerLibrary.DataAccess
     {
 
         private const string PrizesFile = "PrizeModel.csv";
+        private const string PersonFile = "PeopleFile.csv";
         // TODO - Wire Create Prize for Text files
         /// <summary>
         /// Create prize for Text File
@@ -32,6 +33,20 @@ namespace TrackerLibrary.DataAccess
             prizes.Add(model);
             prizes.SaveToPrizeFile(PrizesFile);
             return model;
+        }
+
+        public PersonModel CreatePerson(PersonModel person)
+        {
+            List<PersonModel> people = PersonFile.FullFilePath().LoadFile().ConvertToPersonModels();
+            int currentId = 1;
+            if(people.Count > 0)
+            {
+                currentId = people.OrderByDescending(x => x.Id).First().Id + 1;
+            }
+            person.Id = currentId;
+            people.Add(person);
+            people.SaveToPersonFile(PersonFile);
+            return person;
         }
     }
 }
