@@ -18,10 +18,12 @@ namespace TrackerLibrary.DataAccess
         /// </summary>
         /// <param name="model"></param>
         /// <returns>Prize information, including unique identifier</returns>
+
+        private const string db = "Tournaments";
+
         public PrizeModel CreatePrize(PrizeModel model)
         {
-
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("Tournaments")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
             {
                 var p = new DynamicParameters();
                 p.Add("@PlaceNumber", model.PlaceNumber);
@@ -39,7 +41,7 @@ namespace TrackerLibrary.DataAccess
 
         public PersonModel CreatePerson(PersonModel person)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("Tournaments")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
             {
                 var p = new DynamicParameters();
                 p.Add("@FirstName", person.FirstName);
@@ -54,6 +56,16 @@ namespace TrackerLibrary.DataAccess
                 return person;
             }
 
+        }
+
+        public List<PersonModel> GetPerson_All()
+        {
+            List<PersonModel> output;
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
+            {
+                output = connection.Query<PersonModel>("dbo.spPeople_GetAll").ToList();
+            }
+            return output;
         }
     }
 }
