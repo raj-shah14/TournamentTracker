@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateTeamForm));
-            this.tournamentNameText = new System.Windows.Forms.TextBox();
+            this.teamNameText = new System.Windows.Forms.TextBox();
             this.teamLabel = new System.Windows.Forms.Label();
             this.headerLabel = new System.Windows.Forms.Label();
             this.selectTeamDropDown = new System.Windows.Forms.ComboBox();
@@ -51,12 +51,12 @@
             this.addNewMemberBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tournamentNameText
+            // teamNameText
             // 
-            this.tournamentNameText.Location = new System.Drawing.Point(64, 163);
-            this.tournamentNameText.Name = "tournamentNameText";
-            this.tournamentNameText.Size = new System.Drawing.Size(316, 43);
-            this.tournamentNameText.TabIndex = 14;
+            this.teamNameText.Location = new System.Drawing.Point(64, 163);
+            this.teamNameText.Name = "teamNameText";
+            this.teamNameText.Size = new System.Drawing.Size(316, 43);
+            this.teamNameText.TabIndex = 14;
             // 
             // teamLabel
             // 
@@ -277,6 +277,7 @@
             this.createTeamButton.TabIndex = 26;
             this.createTeamButton.Text = "Create Team";
             this.createTeamButton.UseVisualStyleBackColor = false;
+            this.createTeamButton.Click += new System.EventHandler(this.createTeamButton_Click);
             // 
             // CreateTeamForm
             // 
@@ -291,7 +292,7 @@
             this.Controls.Add(this.addMemberButton);
             this.Controls.Add(this.selectTeamDropDown);
             this.Controls.Add(this.selectTeamMemberLabel);
-            this.Controls.Add(this.tournamentNameText);
+            this.Controls.Add(this.teamNameText);
             this.Controls.Add(this.teamLabel);
             this.Controls.Add(this.headerLabel);
             this.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -308,7 +309,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox tournamentNameText;
+        private System.Windows.Forms.TextBox teamNameText;
         private System.Windows.Forms.Label teamLabel;
         private System.Windows.Forms.Label headerLabel;
         private System.Windows.Forms.ComboBox selectTeamDropDown;
